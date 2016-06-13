@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GI - Landcover Change</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="icon" href="//www.esri.com/favicon.ico">
+    <link rel="stylesheet" href="//js.arcgis.com/3.16/esri/themes/calcite/dijit/calcite.css">
+    <link rel="stylesheet" href="//js.arcgis.com/3.16/esri/themes/calcite/esri/esri.css">
+    <link rel="stylesheet" href="./index.css">
+    <script type="text/javascript">
+      var dojoConfig = {
+        parseOnLoad: true
+      };
+    </script>
+    <script type="text/javascript" src="//js.arcgis.com/3.16/"></script>
+    <script type="text/javascript" src="./index.js"></script>
+  </head>
+  <body class="calcite">
+    <div id="main-container" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false">
+      <div id="main-top-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+        <span id="app-title">Green Infrastructure</span>
+        <span id="app-snippet">Comparing  NLCD 2011 to the Clark Labs’ Predicted NLCD 2050</span>
+        <span id="app-description" class="esri-icon-description" title="Learn more about Green Infrastructure..."></span>
+      </div>
+      <div id="main-center-pane" dir="ltr" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+        <div id="opacity-slider-parent-node">
+          <div>Layer Opacity:</div>
+          <div id="opacity-slider-node"></div>
+        </div>
+        <div id="search-parent-node">
+          <div id="search-node"></div>
+        </div>
+        <div id="map-tools-node">
+          <div id="bookmarks-node" data-dojo-type="dijit/form/DropDownButton">
+            <span>Bookmarks</span>
+            <div data-dojo-type="dijit/DropDownMenu">
+              <div data-dojo-type="dijit/MenuItem" class="zoom-to-city" data-city="Las Vegas">Las Vegas</div>
+              <div data-dojo-type="dijit/MenuItem" class="zoom-to-city" data-city="Phoenix">Phoenix</div>
+              <div data-dojo-type="dijit/MenuItem" class="zoom-to-city" data-city="Atlanta">Atlanta</div>
+              <div data-dojo-type="dijit/MenuItem" class="zoom-to-city" data-city="New York">New York</div>
+              <div data-dojo-type="dijit/MenuItem" class="zoom-to-city" data-city="Harrison County, Mississippi">Harrison County, Mississippi</div>
+            </div>
+          </div>
+          <div id="print-map-btn"></div>
+        </div>
+        <div id="basemap-gallery-parent-node">
+          <div id="basemap-gallery-pane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Basemaps',open:false">
+            <div id="basemap-gallery-node"></div>
+          </div>
+        </div>
+        <div id="map-scale-node"></div>
+      </div>
+      <div id="main-left-pane" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="region:'left',gutters:false">
+        <div id="legend-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+          <div id="legend-node"></div>
+        </div>
+        <div id="info-pane" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+          <div class="info-node" id="info-developed">
+            <div class="change-label">approx. change in developed</div>
+            <div id="info-node-developed" class="change-node">+20%</div>
+            <div id="details-node-developed" class="change-details">186,040,394 acres in 2011 vs 221,092,262 acres in 2050</div>
+          </div>
+          <div class="info-node" id="info-forest">
+            <div class="change-label">approx. change in forests</div>
+            <div id="info-node-forests" class="change-node">-8%</div>
+            <div id="details-node-forests" class="change-details">838,577,357 acres in 2011 vs 770,680,982 acres in 2050</div>
+          </div>
+          <div class="info-node" id="info-crops">
+            <div class="change-label">approx. change in cultivated crops</div>
+            <div id="info-node-crops" class="change-node">+1%</div>
+            <div id="details-node-crops" class="change-details">548,673,866 acres in 2011 vs 554,709,750 acres in 2050</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="about-dialog" class="gi-dialog" data-dojo-type="dijit/ConfirmDialog" data-dojo-props="title:'About'">
+      <div class="about-dialog-content" data-dojo-type="dijit/layout/ContentPane">
+
+        <div class="about-dialog-section-intro">
+          This application compares changes between aggregated 2011 National Land Cover Database land cover
+          categories with similarly aggregated land cover categories from The Clark Labs 2050 Conterminous US Land
+          Cover Prediction. It also provides a few summary statistics about possible changes in developed, forest
+          and agricultural land cover. Look for the soon to be released Clark Labs American Land Change Explorer
+          application, which provides exhaustive analysis and summaries of potential transitions from each of the NLCD
+          categories to each of the projected 2050 categories.
+        </div>
+
+        <div class="about-dialog-section-header">
+          <div>The Clark Labs 2050 Conterminous US Land Cover Prediction</div>
+          <span style="font-size:11pt;">© 2016 Clark Labs</span>
+        </div>
+
+        <div class="about-dialog-section-label">
+          Introduction
+        </div>
+        <div class="about-dialog-section">
+          The Clark Labs’ conterminous US land cover prediction for 2050 was produced as part of the development of the
+          Land Change Explorer – a web application to illustrate the potential of predictive land change modeling and to
+          introduce potential users to the Land Change Modeler – a cloud-based software service for land change modeling
+          to be offered in the ArcGIS Marketplace.
+        </div>
+
+        <div class="about-dialog-section-label">
+          Procedure
+        </div>
+        <div class="about-dialog-section">
+          <div>
+            The prediction is based on an empirical modeling of the relationship between land cover change from 2001 to 2011
+            and a series of explanatory variables. The land cover data were at a 30 meter resolution from the National Land
+            Cover Database (NLCD). The explanatory variables<sup>1</sup> were:
+          </div>
+          <ul>
+            <li>Elevation</li>
+            <li>Slope</li>
+            <li>Proximity to primary roads</li>
+            <li>Proximity to secondary roads</li>
+            <li>Proximity to local roads</li>
+            <li>Proximity to high intensity development</li>
+            <li>Proximity to open water</li>
+            <li>Proximity to cropland (used only for transitions to cropland)</li>
+            <li>Protected areas</li>
+            <li>County subdivisions or counties/incorporated places (depending on the state)<sup>2</sup></li>
+          </ul>
+          <div>
+            The modeling procedure used is a newly developed algorithm suitable for distributed computing in a cloud
+            computing environment<sup>3</sup>. Briefly, the procedure is based of kernel density estimation of the normalized likelihood
+            of change associated with varying levels of each independent variable. These estimates are then aggregated by
+            means of a locally-weighted average where the weights are based on the degree of conviction each variable has
+            about the outcome at that specific pixel. Testing has shown it to be comparable in skill to a multi-layer
+            perceptron neural network with the added advantages of rapid calculation and capability of being distributed
+            across multiple computer nodes.
+          </div>
+        </div>
+        <div class="about-dialog-section">
+          Because the drivers of change can vary over space, modeling was done separately for each state. All transitions
+          that met or exceed 2 km2 in area (at the state level) were modeled independently. Within a single state, as many
+          as 128 individual transitions might occur. In total, over the 48 conterminous states, 3330 transitions were modeled.
+          The modeling process initially establishes the potential to transition. This potential is expressed as a
+          continuous value from 0 to 1 at each pixel for each transition. The procedure then uses the Markovian assumption
+          that the rate of transition experienced in the historical period (2001-2011 in this case) will continue into the
+          future. A competitive greedy selection process then allocates the projected change<sup>4</sup>.
+        </div>
+
+
+        <div class="about-dialog-section-label">
+          Validation
+        </div>
+        <div class="about-dialog-section">
+          In the training process for each transition, 50% of historical instances of change and 50% of an equal-sized
+          sample of pixels eligible to change, but which did not (e.g., persistence), were reserved for model validation.
+          The median accuracy over all 3330 transitions was 80% with 79% of change validation pixels being correctly
+          predicted and 83% of persistence pixels being correctly predicted. Thus the models, on average, are quite
+          balanced in their ability to predict change and persistence.
+        </div>
+        <div class="about-dialog-section">
+          The accuracy associated with more specific transitions varied. A key objective was to be able to monitor and
+          project anthropogenic changes and thus the explanatory variables chosen were focused on such drivers.
+          Consequently, the median accuracy of natural to developed transitions (such as deciduous forest to low intensity
+          development) was 92%. Again, accuracy was evenly balanced (93% for change / 91% for persistence).
+        </div>
+        <div class="about-dialog-section">
+          Accuracy for transitions between developed categories was lower at 77% (80% change and 75% persistence). A
+          large part of this is because of the inconsistent manner in which roads are classified in the NLCD system. Roads
+          are classified as one of the developed categories (high, medium, low and open development) based on the amount
+          of impervious surface detected within pixels. Alignment of image pixels can cause this to vary resulting in roads
+          that frequently switch classes between the years mapped.
+        </div>
+        <div class="about-dialog-section">
+          Natural transitions, such as forest to shrub, had the lowest overall accuracy at 74%. This was expected because
+          many drivers cannot be predicted with the variables used. An example would be forest fires caused by lightning.
+          This is also reflected in the fact that accuracy for predicting change was only 71% while that for predicting
+          persistence was 78%.
+        </div>
+        <div class="about-dialog-section">
+          Finally, in states with significant cropland development, natural to cropland transitions were modeled with a
+          79% overall median accuracy. Accuracies for change and persistence were 78% and 81% respectively.
+        </div>
+
+        <div class="about-dialog-section-label">
+          Disclaimer
+        </div>
+        <div class="about-dialog-section">
+          Note that there are many highly plausible future outcomes and the specific scenario presented is only one of
+          these (albeit judged to be the most plausible). Also note that each state is modeled separately (on the assumption
+          that drivers of change many differ between states). As a consequence, there may be some mismatches at the
+          boundaries between states. Generally, these are only evident for states that have large quantities of natural to
+          natural transitions (e.g., with forest plantation crop cycles or frequent fire) where the accuracy is lower.
+          Also note that the protected areas layer does not include all protected areas. Some local conservation land may
+          be missing. Finally, note that the modeling is based on the assumption that rate of change experienced within
+          the historical period (2001-2011) will persist into the future.
+        </div>
+
+        <div class="about-dialog-section-refs">
+          <hr>
+          <div>
+            <sup>1</sup>
+            Elevation data were from the National Elevation Database while slope was derived from those data. All
+            roads data were acquired from the Census Bureau TIGER line files for 2014. Earlier road data would have
+            been preferred, but errors in earlier TIGER line files were deemed to be unacceptable. Country
+            subdivisions, counties and incorporated places were also acquired from the Census Bureau. Protected areas
+            came from the Protected Areas Database of the USGS National Gap Analysis Program. All proximity layers
+            were derived by Clark Labs.
+          </div>
+          <div>
+            <sup>2</sup>
+            In some states, planning jurisdiction is controlled by county subdivisions (such as in New England), while
+            in others, planning is governed by a combination of counties and incorporated places (such as in many of
+            the western states).
+          </div>
+          <div>
+            <sup>3</sup>
+            Eastman, J.R., Crema, S.C., and Rush, H.R., (forthcoming) A Weighted Normalized Likelihood Procedure for
+            Empirical Land Change Modeling.
+          </div>
+          <div>
+            <sup>4</sup>
+            Greedy selection assumes that the specific pixels that will change are those that are ranked the highest.
+            Conflicts are resolved by assigning them to the transition with the highest marginal transition potential.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

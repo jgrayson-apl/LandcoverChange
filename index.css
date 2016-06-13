@@ -1,0 +1,397 @@
+@import url(https://fast.fonts.net/t/1.css?apiType=css&projectid=9431e9a5-7a6d-4b5f-82be-4d935972de5a);
+@import url(https://fast.fonts.net/t/1.css?apiType=css&projectid=23855eec-5fdf-4594-9898-0113a04bfef0);
+
+html, body {
+  padding                : 0;
+  margin                 : 0;
+  height                 : 100%;
+  width                  : 100%;
+  font-family            : "Avenir Next W01", "Avenir Next W00", "Avenir Next", "Avenir", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  -webkit-font-smoothing : antialiased;
+}
+
+.esriRTL label {
+  /*Example of a rule that will be applied if the app is viewed in a browser with a RTL locale like Hebrew or Arabic.*/
+}
+
+#main-container {
+  width  : 100%;
+  height : 100%;
+}
+
+#main-container * {
+  outline : none;
+}
+
+#main-top-pane {
+  padding    : 5px;
+  height     : auto;
+  color      : #fff;
+  background : #54935c;
+  overflow   : hidden;
+}
+
+#app-title {
+  font-size : 17pt;
+  color     : #fff;
+}
+
+#app-snippet {
+  margin-left : 2rem;
+  font-size   : 11pt;
+  font-style  : italic;
+}
+
+#app-description {
+  cursor    : pointer;
+  position  : absolute;
+  font-size : 11pt;
+  top       : 15px;
+  right     : 10px;
+  color     : #fff;
+}
+
+#main-center-pane {
+  padding : 0;
+}
+
+#opacity-slider-parent-node {
+  z-index          : 99;
+  position         : absolute;
+  top              : 105px;
+  left             : 15px;
+  width            : 230px;
+  padding          : 10px;
+  background-color : #fff;
+  box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#opacity-slider-node {
+  margin : 10px;
+}
+
+#search-parent-node {
+  z-index  : 99;
+  position : absolute;
+  top      : 60px;
+  left     : 15px;
+}
+
+#map-tools-node {
+  z-index    : 99;
+  position   : absolute;
+  top        : 15px;
+  left       : 90px;
+  box-shadow : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#print-map-btn {
+  display   : inline-block;
+  font-size : 11pt;
+}
+
+.calcite .esriPrint {
+  border-color       : transparent;
+  -moz-box-shadow    : none;
+  -webkit-box-shadow : none;
+  box-shadow         : none;
+}
+
+.esriPrintout {
+  margin           : 5px;
+  padding          : 10px;
+  color            : #54935c;
+  background-color : #fff;
+  box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.error-detail {
+  width  : 900px;
+  color  : darkred;
+  margin : 10px;
+}
+
+#map-scale-node {
+  z-index          : 99;
+  position         : absolute;
+  bottom           : 10px;
+  left             : 10px;
+  padding          : 5px;
+  font-size        : 9pt;
+  background-color : #fff;
+  box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#main-left-pane {
+  padding          : 0;
+  width            : 350px;
+  background-color : #fff;
+  font-size        : 10pt;
+}
+
+#left-top-pane {
+  height : 125px;
+}
+
+.info-node {
+  height        : auto;
+  width         : 100%;
+  padding       : 5px;
+  margin-bottom : 5px;
+  box-shadow    : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.change-node {
+  text-align : center;
+  font-size  : 57pt;
+  transition : all 0.5s;
+}
+
+.change-node.updating {
+  opacity    : 0.1;
+  transition : all 1s;
+}
+
+.change-details {
+  text-align : center;
+  font-size  : 8pt;
+}
+
+.change-label {
+  text-align  : center;
+  font-size   : 13pt;
+  font-weight : bold;
+}
+
+#info-developed * {
+  color : #a90202;
+}
+
+#info-forest * {
+  color : #1b6431;
+}
+
+#info-crops * {
+  color : #a97026;
+}
+
+#legend-pane {
+  padding  : 0;
+  height   : 285px;
+  overflow : hidden;
+}
+
+#legend-node {
+  margin    : 5px 20px;
+  font-size : 8pt;
+}
+
+.esriLegendServiceLabel {
+  /*display : none;*/
+}
+
+.esriLegendLayerLabel {
+  display : none;
+}
+
+.calcite .arcgisSearch .searchBtn,
+.calcite .arcgisSearch .searchClose,
+.calcite .arcgisSearch .searchSpinner {
+  color : #54935c;
+}
+
+.calcite .arcgisSearch .searchBtn:hover,
+.calcite .arcgisSearch .searchBtn:hover * {
+  background-color : #eeffee;
+}
+
+.calcite .arcgisSearch .searchGroup .searchInput::-webkit-input-placeholder {
+  color : #54935c;
+}
+
+.calcite .arcgisSearch .searchGroup .searchInput:-moz-placeholder {
+  color : #54935c;
+}
+
+.calcite .arcgisSearch .searchGroup .searchInput::-moz-placeholder {
+  color : #54935c;
+}
+
+.calcite .arcgisSearch .searchGroup .searchInput:-ms-input-placeholder {
+  color : #54935c;
+}
+
+.gi-dialog .dijitDialogTitleBar {
+  color      : #fff;
+  background : #54935c;
+}
+
+.gi-dialog .dijitDialogCloseIcon {
+  color   : #fff;
+  opacity : 1.0;
+}
+
+.gi-dialog .dijitDialogPaneContent .upload-msg {
+  margin    : 10px;
+  font-size : 13pt;
+}
+
+.gi-dialog .dijitDialogTitleBar {
+  color      : #fff;
+  background : #54935c;
+}
+
+.gi-dialog .dijitDialogCloseIcon {
+  color   : #fff;
+  opacity : 1.0;
+}
+
+.gi-dialog .dijitButtonNode {
+  color      : #fff;
+  background : #54935c;
+}
+
+#about-dialog .dijitDialogPaneContent {
+  margin  : 0;
+  padding : 0;
+}
+
+.about-dialog-content {
+  margin    : 0;
+  padding   : 0;
+  width     : 900px;
+  font-size : 11pt;
+}
+
+.about-dialog-section {
+  padding : 8px;
+}
+
+.about-dialog-section-intro {
+  margin           : 10px 10px 20px 10px;
+  padding          : 10px;
+  font-size        : 12pt;
+  /*color            : #54935c;*/
+  background-color : #e3fce3;
+  box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.about-dialog-section-header {
+  padding          : 10px;
+  font-size        : 15pt;
+  font-weight      : bold;
+  background-color : #54935c;
+  color            : #fff;
+}
+
+.about-dialog-section-label {
+  font-size   : 13pt;
+  font-weight : bold;
+  color       : #54935c;
+}
+
+.about-dialog-section-refs {
+  padding   : 10px;
+  font-size : 9pt;
+}
+
+#about-dialog sup {
+  font-size      : 10pt;
+  color          : #54935c;
+  line-height    : 0;
+  vertical-align : baseline;
+  position       : relative;
+  top            : -0.4em;
+}
+
+.movable-label {
+  z-index          : 99;
+  padding          : 3px;
+  position         : relative;
+  top              : 0;
+  width            : 140px;
+  right            : 64px;
+  text-align       : center;
+  font-size        : 13pt;
+  font-weight      : bold;
+  color            : #fff;
+  background-color : #54935c;
+  border-top       : solid 1px #c2ccc4;
+  box-shadow       : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#basemap-gallery-parent-node {
+  z-index    : 99;
+  position   : absolute;
+  top        : 15px;
+  right      : 15px;
+  box-shadow : 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#basemap-gallery-parent-node .dijitTitlePaneContentInner {
+  padding : 5px;
+}
+
+#basemap-gallery-node {
+  max-width : 440px;
+}
+
+.calcite .dijitTitlePane {
+  border : none;
+}
+
+.calcite .dijitTitlePaneTitle {
+  color : #54935c !important;
+}
+
+.dijitTitlePane .dijitArrowNode {
+  width : 20px;
+}
+
+.calcite .esriBasemapGalleryNode:hover {
+  background-color : #e3fce3;
+}
+
+.calcite .esriBasemapGalleryNode.esriBasemapGallerySelectedNode {
+  background-color : #a7dba7;
+}
+
+/* UC PLENARY */
+@media (max-height : 800px) {
+
+  #main-left-pane {
+    padding          : 0;
+    width            : 325px;
+    background-color : #fff;
+    font-size        : 9pt;
+  }
+
+  #legend-pane {
+    padding  : 0;
+    height   : 250px;
+    overflow : hidden;
+  }
+
+  #legend-node {
+    margin    : 5px 10px;
+    font-size : 8pt;
+  }
+
+  #info-pane {
+    overflow : hidden;
+  }
+
+  .change-node {
+    font-size : 49pt;
+  }
+
+  .change-label {
+    font-size : 11pt;
+  }
+
+  /*.change-details {
+    text-align : center;
+    font-size  : 8pt;
+  }*/
+
+}
