@@ -69,6 +69,7 @@ require([
 
       // PROXY NEEDED FOR PRINTING //
       esriConfig.defaults.io.proxyUrl = "https://webappsproxy.esri.com/Oauth";
+      esriConfig.defaults.io.corsEnabledServers.push("https://webappsproxy.esri.com");
 
       arcgisUtils.createMap(webMapId, mapNodeId, {
         mapOptions: {
